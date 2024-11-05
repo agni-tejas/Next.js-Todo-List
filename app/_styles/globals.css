@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+label {
+  font: inherit;
+}
+
+:root {
+  --_hue: 245;
+  --_size: 1.8rem;
+  --_radius: 0.2em;
+  --_tspeed_fast: 180ms;
+  --_tspeed_slow: 300ms;
+  --_ttype_squish: cubic-bezier(0.86, -0.1, 0.27, 1.15);
+
+  /* Light Mode */
+  --bg--light: 0 0% 100%;
+  --htext--light: 235.32deg 69.37% 21.76%;
+  --txt--light: 20deg 14.29% 4.12%;
+  --accent--light: var(--_hue) 89% 60%;
+  --accent1--light: 10 80% 60%;
+  --muted--light: var(--_hue) 30% 99%;
+  /* Dark Mode */
+  --bg--dark: var(--_hue) 15% 10%;
+  --htext--dark: var(--_hue) 30% 88%;
+  --txt--dark: var(--_hue) 30% 88%;
+  --accent--dark: var(--_hue) 50% 50%;
+  --accent1--dark: 10 55% 50%;
+  --muted--dark: var(--_hue) 20% 4%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg--dark);
+    --htxt: var(--htext--dark);
+    --txt: var(--txt--dark);
+    --accent: var(--accent--dark);
+    --accent1: var(--accent1--dark);
+    --muted: var(--muted--dark);
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--bg--light);
+    --htxt: var(--htext--light);
+    --txt: var(--txt--light);
+    --accent: var(--accent--light);
+    --accent1: var(--accent1--light);
+    --muted: var(--muted--light);
+    color-scheme: light;
+  }
+}
+
+:root[color-scheme="dark"] {
+  --bg: var(--bg--dark);
+  --htxt: var(--htext--dark);
+  --txt: var(--txt--dark);
+  --accent: var(--accent--dark);
+  --accent1: var(--accent1--dark);
+  --muted: var(--muted--dark);
+  color-scheme: dark;
+}
+
+:root[color-scheme="light"] {
+  --bg: var(--bg--light);
+  --htxt: var(--htext--light);
+  --txt: var(--txt--light);
+  --accent: var(--accent--light);
+  --accent1: var(--accent1--light);
+  --muted: var(--muted--light);
+  color-scheme: light;
+}
+
+.label {
+  transform: translateY(-50%);
+  transition: transform var(--_tspeed_fast) var(--_ttype_squish),
+    background-color var(--_tspeed_fast) var(--_ttype_squish);
+}
+
+.input {
+  border: 1px solid #b7bcc586;
+  caret-color: hsl(var(--accent));
+  box-shadow: 0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent) / 0.8);
+  transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2em hsl(var(--bg)), 0 0 0 0.4em hsl(var(--accent) / 0.8);
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  transform: translate3d(0, -3em, 0);
+  background-color: hsl(var(--bg));
+  color: hsl(var(--accent) / 0.8);
+}
+
+.input::placeholder {
+  opacity: 0;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--accent)) transparent;
+}
+
+.checkbox {
+  box-shadow: 0 0 0.5em hsl(var(--accent) / 0.1),
+    0 0 0 0.05em hsl(var(--accent) / 0.5), 0 0 0 -0.2em hsl(var(--accent));
+  transition: box-shadow var(--_tspeed_fast) ease-in-out,
+    background-color 80ms ease-in-out;
+}
+
+.checkbox:is(:focus-visible, :hover) {
+  box-shadow: 0 0 0 hsl(var(--bg)), 0 0 0 0.05em hsl(var(--accent)),
+    0 0 0 0.225em hsl(var(--accent) / 0.3);
+}
+
+.checkmark {
+  transform: translate3d(calc(-100% - 0.5em), -50%, 0);
+  transition: background-color 80ms ease-in-out;
+}
+
+.checkbox:checked {
+  background-color: hsl(var(--accent));
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animated-pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+  color: #f7e5e5;
+  background-color: red;
+}
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid hsl(var(--accent));
+    border-right-color: hsl(var(--accent));
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
