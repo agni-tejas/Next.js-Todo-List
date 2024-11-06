@@ -39,8 +39,8 @@ const QuoteModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[100] px-[2vmax] grid place-items-center bg-[hsl(var(--bg)/0.7)]">
-      <div className="flex flex-col text-[20px] w-[25rem] p-[1.3em] bg-[hsl(var(--bg))] rounded-[1.8rem] border border-[hsl(var(--accent)/0.3)] shadow-[0_-1em_3em_hsl(var(--muted)),_0_1em_3em_hsl(var(--accent)/0.2)]">
-        <div className="place-items-end">
+      <div className="flex flex-col text-[20px] w-[20rem] md:w-[25rem] p-[1.3em] bg-[hsl(var(--bg))] rounded-[1.8rem] border border-[hsl(var(--accent)/0.3)] shadow-[0_-1em_3em_hsl(var(--muted)),_0_1em_3em_hsl(var(--accent)/0.2)]">
+        <div className="justify-items-end">
           <Button variant="update" onClick={onClose}>
             <AiOutlineClose size={20} />
           </Button>

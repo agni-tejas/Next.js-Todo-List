@@ -35,7 +35,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
       }}
     >
       <form
-        className="flex flex-col text-[20px] w-[25rem] p-[1.3em] bg-[hsl(var(--bg))] rounded-[1.8rem] border border-[hsl(var(--accent)/0.3)] shadow-[0_-1em_3em_hsl(var(--muted)),_0_1em_3em_hsl(var(--accent)/0.2)]"
+        className="flex flex-col text-[20px] w-[20rem] md:w-[25rem] p-[1.3em] bg-[hsl(var(--bg))] rounded-[1.8rem] border border-[hsl(var(--accent)/0.3)] shadow-[0_-1em_3em_hsl(var(--muted)),_0_1em_3em_hsl(var(--accent)/0.2)]"
         onSubmit={handleFormSubmit}
       >
         <p className="text-left text-sm">Created at: {date}</p>
@@ -44,7 +44,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
           <input
             type="text"
             id="editTask"
-            className="input max-w-full p-2 pr-24 rounded-[0.5rem] outline-none h-14 bg-muted"
+            className="input md:max-w-full p-2 pr-24 rounded-[0.5rem] outline-none h-14 max-w-[78%]  bg-muted"
             value={updatedTaskName}
             onInput={(e) => setUpdatedTaskName(e.target.value)}
             required
@@ -59,7 +59,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
             Update Task
           </label>
         </div>
-        <div className="place-items-center">
+        <div className="justify-items-center">
           <Button
             variant="primary2"
             size="sm"
