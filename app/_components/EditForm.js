@@ -29,7 +29,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
   return (
     <div
       className="fixed inset-0 z-[100] px-[2vmax] grid place-items-center bg-[hsl(var(--bg)/0.7)]"
-      aria-labelledby="editTask"
+      aria-label="editTask"
       onClick={(e) => {
         e.target === e.currentTarget && closeEditMode();
       }}
@@ -44,7 +44,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
           <input
             type="text"
             id="editTask"
-            className="input md:max-w-full p-2 pr-24 rounded-[0.5rem] outline-none h-14 max-w-[78%]  bg-muted"
+            className="input md:max-w-full p-2 pr-10 rounded-[0.5rem] outline-none h-14 max-w-[16.5rem]  bg-muted"
             value={updatedTaskName}
             onInput={(e) => setUpdatedTaskName(e.target.value)}
             required
@@ -54,12 +54,12 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
           />
           <label
             htmlFor="editTask"
-            className="label absolute top-1/2 pointer-events-none bg-[hsl(var(--muted))] text-[#b7bcc5] font-light text-[0.6em] tracking-[0.05em] mx-[0.45em] p-[0.1em_0.35em]"
+            className="label absolute top-1/2 pointer-events-none bg-[hsl(var(--muted))] text-[#b7bcc5] font-light text-[0.8em] tracking-[0.05em] mx-[0.45em] p-[0.1em_0.35em]"
           >
             Update Task
           </label>
         </div>
-        <div className="justify-items-center">
+        <div className="ml-[40%]">
           <Button
             variant="primary2"
             size="sm"
