@@ -8,28 +8,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Light Mode Colors
         backgroundColor: "hsl(var(--bg))",
         headColor: "hsl(var(--htxt))",
         textColor: "hsl(var(--txt))",
         accent: "hsl(var(--accent))",
         accent1: "hsl(var(--accent1))",
         muted: "hsl(var(--muted))",
-
-        // Dark Mode Colors
       },
       fontSize: {
-        customSize: "1.8rem", // Custom size for padding, margins, etc.
+        customSize: "1.8rem",
       },
       borderRadius: {
-        custom: "0.2em", // Custom border radius
+        custom: "0.2em",
       },
       transitionTimingFunction: {
-        squish: "cubic-bezier(0.86, -0.1, 0.27, 1.15)", // Custom timing function
+        squish: "cubic-bezier(0.86, -0.1, 0.27, 1.15)",
       },
       transitionDuration: {
-        fast: "180ms", // Fast transition speed
-        slow: "300ms", // Slow transition speed
+        fast: "180ms",
+        slow: "300ms",
       },
     },
   },
