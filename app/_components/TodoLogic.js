@@ -1,23 +1,20 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import FilterSortControls from "@/app/_components/FilterSortControls";
 import TaskActions from "@/app/_components/TaskActions";
-
 import ThemeSwitcher from "@/app/_components/ThemeSwitcher";
 import QuoteModal from "@/app/_components/QuoteModal";
-
 import useLocalStorage from "@/app/_hooks/useLocalStorage";
-import TimeStamp from "@/app/_hooks/TimeStamp";
 import EditForm from "./EditForm";
 import CustomForm from "./CustomForm";
 import TaskList from "./TaskList";
 import { FaQuoteLeft } from "react-icons/fa";
 import ReactConfetti from "react-confetti";
 import { Button } from "../_ui/Button";
+import createdAt from "../_lib/createdAt";
 
 export default function Home() {
   const [tasks, setTasks] = useLocalStorage("react-todo.tasks", []);
@@ -33,7 +30,7 @@ export default function Home() {
   const addTask = (task) => {
     const newTask = {
       ...task,
-      createdAt: TimeStamp(),
+      createdAt: createdAt(),
     };
     setTasks((prevState) => [...prevState, newTask]);
     toast.success("Task added!", {
@@ -45,7 +42,7 @@ export default function Home() {
   };
 
   const deleteTask = (id) => {
-    setTasks((prevState) => prevState.filter((t) => t.id !== id));
+    setTasks((prevState) => prevState.filter((task) => task.id !== id));
     toast.info("Task deleted.", {
       theme: "color-scheme",
       style: {
@@ -56,13 +53,17 @@ export default function Home() {
 
   const toggleTask = (id) => {
     setTasks((prevState) =>
-      prevState.map((t) => (t.id === id ? { ...t, checked: !t.checked } : t))
+      prevState.map((task) =>
+        task.id === id ? { ...task, checked: !task.checked } : task
+      )
     );
   };
 
   const updateTask = (task) => {
     setTasks((prevState) =>
-      prevState.map((t) => (t.id === task.id ? { ...t, name: task.name } : t))
+      prevState.map((task) =>
+        task.id === task.id ? { ...task, name: task.name } : task
+      )
     );
     closeEditMode();
     toast.info("Task updated.", {
@@ -75,8 +76,8 @@ export default function Home() {
 
   const toggleImportant = (id) => {
     setTasks((prevState) =>
-      prevState.map((t) =>
-        t.id === id ? { ...t, important: !t.important } : t
+      prevState.map((task) =>
+        task.id === id ? { ...task, important: !task.important } : task
       )
     );
   };
@@ -194,7 +195,7 @@ export default function Home() {
           deleteTask={deleteTask}
           toggleTask={toggleTask}
           enterEditMode={enterEditMode}
-          toggleImportant={toggleImportant} // Pass the toggle function
+          toggleImportant={toggleImportant}
         />
       )}
 

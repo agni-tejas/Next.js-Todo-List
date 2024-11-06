@@ -1,8 +1,5 @@
 "use client";
-
 import { useState, useEffect } from "react";
-
-import { CheckIcon } from "@heroicons/react/24/solid";
 import { Button } from "../_ui/Button";
 
 const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
@@ -12,9 +9,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
     const closeModalIfEscaped = (e) => {
       e.key === "Escape" && closeEditMode();
     };
-
     window.addEventListener("keydown", closeModalIfEscaped);
-
     return () => {
       window.removeEventListener("keydown", closeModalIfEscaped);
     };

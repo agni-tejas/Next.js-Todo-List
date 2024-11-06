@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { AiOutlineClose } from "react-icons/ai"; // Close icon
+import { AiOutlineClose } from "react-icons/ai";
 import { Button } from "../_ui/Button";
 import { FaQuoteLeft } from "react-icons/fa";
 
@@ -22,7 +22,6 @@ const QuoteModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       setQuote("");
-
       getQuote();
     }
   }, [isOpen]);

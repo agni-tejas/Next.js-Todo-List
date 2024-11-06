@@ -1,4 +1,4 @@
-function useTimeStamp() {
+function createdAt() {
   const currentTime = new Date();
 
   const day = currentTime.getDate().toString().padStart(2, "0");
@@ -17,4 +17,4 @@ function useTimeStamp() {
   return `${formattedDate} ${formattedTime}`;
 }
 
-export default useTimeStamp;
+export default createdAt;

@@ -14,7 +14,6 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 const ThemeSwitcher = ({ onClick, tasks }) => {
   const [hue, setHue] = useLocalStorage("react-todo.color", "224");
-
   const [theme, setTheme] = useLocalStorage("react-todo.theme", "light");
   const [isColorPicking, setIsColorPicking] = useState(false);
 

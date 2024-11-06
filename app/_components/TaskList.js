@@ -1,5 +1,3 @@
-// component import
-
 import TaskItem from "./TaskItem";
 
 const TaskList = ({
