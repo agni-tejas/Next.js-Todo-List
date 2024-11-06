@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   const deleteTask = (id) => {
-    setTasks((prevState) => prevState.filter((task) => task.id !== id));
+    setTasks((prevState) => prevState.filter((t) => t.id !== id));
     toast.info("Task deleted.", {
       theme: "color-scheme",
       style: {
@@ -53,17 +53,13 @@ export default function Home() {
 
   const toggleTask = (id) => {
     setTasks((prevState) =>
-      prevState.map((task) =>
-        task.id === id ? { ...task, checked: !task.checked } : task
-      )
+      prevState.map((t) => (t.id === id ? { ...t, checked: !t.checked } : t))
     );
   };
 
   const updateTask = (task) => {
     setTasks((prevState) =>
-      prevState.map((task) =>
-        task.id === task.id ? { ...task, name: task.name } : task
-      )
+      prevState.map((t) => (t.id === task.id ? { ...t, name: task.name } : t))
     );
     closeEditMode();
     toast.info("Task updated.", {
@@ -76,8 +72,8 @@ export default function Home() {
 
   const toggleImportant = (id) => {
     setTasks((prevState) =>
-      prevState.map((task) =>
-        task.id === id ? { ...task, important: !task.important } : task
+      prevState.map((t) =>
+        t.id === id ? { ...t, important: !t.important } : t
       )
     );
   };
