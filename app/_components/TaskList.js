@@ -12,7 +12,7 @@ const TaskList = ({
   return (
     <>
       {tasks.length > 0 && (
-        <div className="h-[220px] overflow-y-auto custom-scrollbar">
+        <div className="md:h-[220px] h-[290px] overflow-y-auto custom-scrollbar">
           <ul className="grid list-none">
             {tasks.map((task) => (
               <TaskItem

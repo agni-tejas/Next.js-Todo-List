@@ -9,7 +9,7 @@ export default function TaskActions({
   clearAllTasks,
 }) {
   return (
-    <div className="flex justify-between pt-2 border-t">
+    <div className="flex justify-between pt-2 border-t md:w-[638px] w-[350px]">
       <span className="text-[#B1BACB] text-lg font-medium">
         {filteredTasks.length} items
       </span>

@@ -17,11 +17,11 @@ const CustomForm = ({ addTask }) => {
 
   return (
     <form className="flex gap-4 text-customSize" onSubmit={handleFormSubmit}>
-      <div className="grow shrink basis-full relative grid gap-1">
+      <div className="ml-2 md:ml-0 grow shrink basis-full relative grid gap-1">
         <input
           type="text"
           id="task"
-          className="input max-w-full p-2 pr-24 rounded-[0.5rem] outline-none h-14 bg-muted"
+          className="input w-[340px] md:w-[638px] p-2 pr-24 rounded-[0.5rem] outline-none h-14 bg-muted"
           value={task}
           onInput={(e) => setTask(e.target.value)}
           required

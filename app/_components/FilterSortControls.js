@@ -5,7 +5,7 @@ export default function FilterSortControls({
   setSort,
 }) {
   return (
-    <div className="fade-in show flex justify-end gap-2">
+    <div className="fade-in show flex justify-end gap-2 md:w-[638px] w-[340px]">
       <select
         onChange={(e) => setFilter(e.target.value)}
         className="p-2 border-[0.05em] border-solid border-[#a2a2a250] text-xs rounded-md"

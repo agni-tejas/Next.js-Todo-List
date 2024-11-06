@@ -22,7 +22,7 @@ const TaskItem = ({
   };
 
   return (
-    <li className="flex items-center justify-between gap-[0.5em] text-[1.8rem] border-b-[0.5px] border-[#a2a2a250] p-[0.6em] h-[3.2rem]">
+    <li className="flex items-center justify-between gap-[0.5em] text-[1.8rem] border-b-[0.5px] border-[#a2a2a250] p-[0.6em] h-[3.2rem] w-[350px] md:w-[638px]  ">
       <div className="flex items-center gap-[0.5em]">
         <input
           type="checkbox"
